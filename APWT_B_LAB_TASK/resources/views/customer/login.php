@@ -7,8 +7,8 @@
 	<form method="post">
 	<table>
 		<tr>
-			<td>Name</td> <?php echo $name ?>
-			<td><input type="text" name="uname" ></td>
+			<td>Email</td>
+			<td><input type="text" name="email" ></td>
 		</tr>
 		<tr>
 			<td>Password</td>

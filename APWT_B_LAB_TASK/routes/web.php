@@ -14,15 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::post('/login', function () {
-    return view('login.index');
-});
-Route::get('/check', function () {
-    return redirect('/login');
-});
 
 Route::get('/dashboard',function ()
 {
@@ -30,9 +21,7 @@ Route::get('/dashboard',function ()
 });
 
 
-Route::get('/login','LoginController@check');  
-Route::post('/login','LoginController@verify')->middleware('acscheck');
-Route::post('/login/create','InfoStoreControllers@store');
+
 
 Route::get('/test', function () {
     return view('test');
@@ -42,6 +31,7 @@ Route::get('/search',function ()
 {
     return view('search');
 }); 
+
 Route::post('/search','UserController@searchuser');
 
  
@@ -56,80 +46,14 @@ Route::post('user/update/{id}','UserController@edit');
 
 // Manager's Route 
 
-Route::get('/dashboardmanager',function ()
+Route::get('/dashboard',function ()
 {
-    return view('mngr.dashboard');
+    return view('.dashboard');
 }); 
 
 
-Route::get('/mgrlogin', function () {
-    return view('mngr.login');
-});
+Route::post('/ulogin','CustomerController@login');
 
-Route::post('/mgrlogin','UserController@verifymgr');
-
-Route::get('/mgrregister', function () {
-    return view('mngr.register');
-});
-Route::get('/mgruserlist', function () {
-    return view('mngr.userlist');
-});
-Route::get('/addclient', function () {
-    return view('mngr.addclient');
-});
-Route::get('/addemployee', function () {
-    return view('mngr.addemployee');
-});
-Route::get('/application', function () {
-    return view('mngr.application');
-});
-Route::get('/loanapplication', function () {
-    return view('mngr.loanapplication');
-});
-Route::get('/cardapplication', function () {
-    return view('mngr.cardapplication');
-});
-Route::get('/employee', function () {
-    return view('mngr.employee');
-});
-Route::get('/finacial', function () {
-    return view('mngr.financials');
-});
-Route::get('/deal', function () {
-    return view('mngr.deal');
-});
-
-Route::get('/currency', function () {
-    return view('mngr.currency');
-});
-
-Route::get('/report', function () {
-    return view('mngr.report');
-});
-Route::get('/officials', function () {
-    return view('mngr.officials');
-});
-Route::get('/meeting', function () {
-    return view('mngr.meeting');
-});
-
-Route::get('/seminar', function () {
-    return view('mngr.seminar');
-});
-Route::get('/home', function () {
-    return view('mngr.primarydashboard');
-});
-
-Route::get('/go', function () {
-    return view('mngr.test');
-});
-
-
-
-
-
-Route::post('/login','CustomerController@login');
-
-Route::get('/login', function () {
-    return view('admin.login');
+Route::get('/ulogin', function () {
+    return view('customer.login');
 });

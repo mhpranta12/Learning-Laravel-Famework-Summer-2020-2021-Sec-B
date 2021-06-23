@@ -13,24 +13,24 @@ class CustomerController extends Controller
         /*$user = User::find('idd) 
         ->get();*/
         
-       $validationname=Validator::make($rq->all(),
+       $validationemail=Validator::make($rq->all(),
        [
-           //'uname.required'=>'Please insert uname',
-           'uname'=> 'required|max:5|min:2'
+        
+           'email'=> 'email:rfc,dns|required|max:50'
          
        ]
        );
        $validationpassword=Validator::make($rq->all(),
        [
-           //'uname.required'=>'Please insert uname',
-           'password'=> 'required|min:5'
+           
+           'password'=> 'array:password,locale|required|min:5|max:20'
          
        ]
        );
 
-       if($validationname->fails())
+       if($validationemail->fails())
        {
-           echo "username Error <br>";
+           echo "Email Error <br>";
        }
        if($validationpassword->fails())
        {
