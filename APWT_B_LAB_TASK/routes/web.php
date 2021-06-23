@@ -1,0 +1,98 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+Route::get('/dashboard',function ()
+{
+    return view('dashboard');
+});
+
+
+
+
+Route::get('/test', function () {
+    return view('test');
+});
+// serach router
+Route::get('/search',function ()
+{
+    return view('search');
+}); 
+
+Route::post('/search','UserController@searchuser');
+
+ 
+
+
+Route::get('user/details/{id}','UserController@details');
+Route::get('user/delete/{id}','UserController@delete');
+Route::get('user/update/{id}','UserController@update');
+Route::post('user/update/{id}','UserController@edit');
+
+
+// Manager's Route 
+
+Route::get('/dashboard',function ()
+{
+    return view('dashboard');
+}); 
+
+
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::post('/ulogin','CustomerController@login');
+
+
+Route::post('/ulogin','CustomerController@login');
+
+Route::get('/ulogin', function () {
+    return view('customer.login');
+});
+Route::get('/uregister',function ()
+{
+    return view('customer.registration');
+}); 
+Route::post('/uregister','CustomerController@insert');
+
+Route::get('/registered',function ()
+{
+    return view('customer.regconfirm');
+}); 
+Route::post('/acregister','AccountantController@insert');
+Route::get('/acregister',function ()
+{
+    return view('accountant.registration');
+}); 
+Route::get('/acregistered',function ()
+{
+    return view('accountant.regconfirm');
+}); 
+Route::get('/productmgt',function ()
+{
+    return view('accountant.productmgt');
+}); 
+Route::get('/adminlogin',function ()
+{
+    return view('adminlogin');
+}); 
+Route::post('/adminlogin','AdminController@login');
+Route::get('/admindashboard',function ()
+{
+    return view('admin.dashboard');
+}); 
